@@ -23,7 +23,11 @@ void setup() {
 
 // Start serial communication (not necessary for production devices...just for troubleshooting)
 // All the Serial.print statements are unnecessary except for debugging purposes
+// The delay seems to be necessary to make this work consistently.  Unclear exactly why, but the
+// Arduino seems to need a little bit of time to be happy.  This maybe only an issue with the 
+// Serial connection, but there is no real harm in using it.
     Serial.begin( 115200 );
+    delay( 2000 );
 
 // Start the BLE on the Arduino
     if ( !BLE.begin() ) {
